@@ -1,0 +1,8 @@
+"error.error"="Unexpected error.";
+"error.expectedHTTPResponse"="This client can’t handle a response other than HTTPURLResponse.";
+"error.expectedNonEmptyContent"="Expected non empty content";
+"error.httpStatusError"="HTTP status error.";
+"error.invalidEndpoint"="Couldn’t create a URL from the given resource and base URL.";
+"error.jsonDecodingError"="Error decoding JSON.";
+"error.timeout"="The request timed out.";
+"error.wrongContentType"="Wrong Content-Type header.";

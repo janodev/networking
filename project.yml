@@ -1,0 +1,62 @@
+name: Networking
+
+options:
+  bundleIdPrefix: dev.jano.networking
+  usesTabs: false
+  indentWidth: 4
+  tabWidth: 4
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "14.5"
+
+settings:
+    CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+    IPHONEOS_DEPLOYMENT_TARGET: 14.5
+
+packages:
+ 
+    LogDynamic:
+      url: git@github.com:janodev/log.git
+      from: 1.0.0
+   
+    SessionDynamic:
+      url: git@github.com:janodev/session.git
+      from: 1.0.0
+
+targets:
+
+ Networking:
+   dependencies:
+     - package: LogDynamic
+     - package: SessionDynamic
+   platform: iOS
+   scheme:
+     testTargets:
+       - NetworkingTests
+   settings:
+     CURRENT_PROJECT_VERSION: 1
+     INFOPLIST_FILE: targets/main/Info.plist
+     PRODUCT_BUNDLE_IDENTIFIER: dev.jano.networking
+     PRODUCT_NAME: Networking
+   sources: 
+     - sources/main
+     - bundleaccessor/main
+   type: framework
+   postCompileScripts:
+     - script: swiftlint
+       name: Swiftlint
+
+ NetworkingTests:
+   dependencies:
+     - package: LogDynamic
+     - package: SessionDynamic
+     - target: Networking
+   platform: iOS
+   settings:
+     INFOPLIST_FILE: targets/tests/Info.plist
+     PRODUCT_BUNDLE_IDENTIFIER: dev.jano.networking.tests
+     TEST_HOST:
+   sources:
+     - sources/tests
+     - bundleaccessor/tests
+   type: bundle.unit-test
