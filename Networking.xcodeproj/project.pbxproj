@@ -60,6 +60,7 @@
 		E78455D845D0AA37CD883596 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D15A786C612CA158EF5B6E /* Method.swift */; };
 		E8D5D2CD0BADA8C52BD4DB36 /* Street.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2900C7A287952108F0EB283 /* Street.swift */; };
 		F47588E20E6F0C0FFE82FF9E /* LogBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95255E29946D96D1CF5F19B5 /* LogBuilderTests.swift */; };
+		F50D5463E0F36A7D62F70C77 /* Signpost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628E469DAF3BB45B346841BD /* Signpost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		5E4A24841656BB23D0637676 /* Formatter+8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+8601.swift"; sourceTree = "<group>"; };
 		60D15A786C612CA158EF5B6E /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		61F9366E79B70098DCF2FEFF /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		628E469DAF3BB45B346841BD /* Signpost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signpost.swift; sourceTree = "<group>"; };
 		6FB8ED97FDD0FA288769CF2D /* ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
 		70B0B8A539986C0E6BDCFABA /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		778BE35B5B785CA4586E9FBA /* GenericJSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericJSONDecoderTests.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				90C232D700553FFE6EF95E18 /* json */,
 				016ACCE0F3D28BB23381DE8A /* report */,
 				3F4DC6587379F1E33C97D4C9 /* resources */,
+				95FFA5273E68518B2E35D19C /* signpost */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -276,6 +279,14 @@
 				CE9414758FADE9303AE41019 /* 8601 */,
 			);
 			path = json;
+			sourceTree = "<group>";
+		};
+		95FFA5273E68518B2E35D19C /* signpost */ = {
+			isa = PBXGroup;
+			children = (
+				628E469DAF3BB45B346841BD /* Signpost.swift */,
+			);
+			path = signpost;
 			sourceTree = "<group>";
 		};
 		A6556CE70BA685DE3E2B1005 = {
@@ -544,6 +555,7 @@
 				A10F41385175EF3FE6867C17 /* ReportSection.swift in Sources */,
 				677FAC5676D45C2F79441BD0 /* RequestError.swift in Sources */,
 				9DD004401E9289FD372CA92B /* Resource.swift in Sources */,
+				F50D5463E0F36A7D62F70C77 /* Signpost.swift in Sources */,
 				0D2D8677681F3A2CC1FB2628 /* Status.swift in Sources */,
 				6D04CE3BC91B76115B270CBE /* URLRequest+Resource.swift in Sources */,
 				01E12277200AC0B8B27F4FD9 /* i18n.swift in Sources */,

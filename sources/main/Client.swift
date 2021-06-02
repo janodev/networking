@@ -1,4 +1,5 @@
 import Foundation
+import os
 import Session
 
 open class Client
@@ -23,17 +24,24 @@ open class Client
             return complete(.failure(.invalidEndpoint(resource, baseURL)))
         }
 
+        let _complete: (Result<T, RequestError<T>>) -> Void = { result in
+
+            Signpost.end(message: "%@ %@", resource.method.rawValue, resource.path)
+            complete(result)
+        }
+        Signpost.begin(message: "%@ %@", resource.method.rawValue, resource.path)
+
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
 
             // return on error
             if let error = error {
-                complete(.failure(.error(error)))
+                _complete(.failure(.error(error)))
                 return
             }
 
             // return on other response than HTTP
             guard let httpURLResponse = response as? HTTPURLResponse else {
-                complete(.failure(.expectedHTTPResponse(response)))
+                _complete(.failure(.expectedHTTPResponse(response)))
                 return
             }
 
@@ -41,13 +49,13 @@ open class Client
 
             // return on HTTP error status code
             guard let status = Status(code: httpURLResponse.statusCode), !status.isError else {
-                complete(.failure(.httpStatusError(httpURLResponse.statusCode)))
+                _complete(.failure(.httpStatusError(httpURLResponse.statusCode)))
                 return
             }
 
             let httpResult = HTTPResult(data: data, response: httpURLResponse)
             let result = resource.parse(httpResult)
-            complete(result)
+            _complete(result)
         })
         task.resume()
     }
