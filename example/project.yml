@@ -1,4 +1,4 @@
-name: randomuser
+name: RandomUser
 options:
   bundleIdPrefix: es.com.jano.randomuser
   usesTabs: false
@@ -14,19 +14,19 @@ settings:
 
 packages:
 
-  Log:
+  LogDynamic:
     url: git@github.com:janodev/log.git
     from: 1.0.0
 
-  Networking:
+  NetworkingDynamic:
     path: ..
 
 targets:
 
-  RandomUser:
+  RandomUserApi:
     dependencies:
-      - package: Networking
-      - package: Log
+      - package: LogDynamic
+      - package: NetworkingDynamic
     platform: iOS
     settings:
       CURRENT_PROJECT_VERSION: 1
@@ -35,18 +35,18 @@ targets:
       IPHONEOS_DEPLOYMENT_TARGET: 14.5
       MARKETING_VERSION: 1.0.0
       PRODUCT_BUNDLE_IDENTIFIER: es.com.jano.randomuser
-      PRODUCT_NAME: RandomUser
+      PRODUCT_NAME: RandomUserApi
     scheme:
       testTargets:
-        - RandomUserTests
+        - RandomUserApiTests
     sources:
       - sources/main
       - targets/main/Info.plist
     type: framework
 
-  RandomUserTests:
+  RandomUserApiTests:
     dependencies:
-      - target: RandomUser
+      - target: RandomUserApi
     platform: iOS
     settings:
       DEVELOPMENT_TEAM: PPSF6CNP8Q
